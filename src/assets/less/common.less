@@ -1,0 +1,6 @@
+.font(@px, @bold) {
+    font-size: @px;
+    line-height: @px + 8;
+    font-family: if(@bold, medium, regular);
+    font-weight: if(@bold, bolder, normal);
+}

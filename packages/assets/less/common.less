@@ -1,0 +1,97 @@
+body {
+    color: var(--ui-secondary-color-6);
+    font-size: 14px;
+    font-family: "regular";
+    box-sizing: border-box;
+    line-height: 22px;
+
+    // 初始化样式与滚动条
+    // &::-webkit-scrollbar 滚动条整体部分
+    // &::-webkit-scrollbar-thumb 滚动条里面的小方块，能向上向下移动（或向左向右移动）
+    // &::-webkit-scrollbar-track 滚动条的轨道（里面装有Thumb）
+    // &::-webkit-scrollbar-button 滚动条的轨道的两端按钮，由于通过点击微调小方块的位置。
+    // &::-webkit-scrollbar-track-piece 内层轨道，滚动条中间部分
+    // &::-webkit-scrollbar-corner 边角，即垂直滚动条和水平滚动条相交的地方
+    // &::-webkit-resizer 两个滚动条的交汇处上用于拖动调整元素大小的小控件
+    &::-webkit-scrollbar {
+        width: 12px;
+        padding: 0 2px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: var(--ui-secondary-color-3);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: var(--ui-secondary-color-1);
+        border-radius: 9999px;
+        border: 2px solid var(--ui-secondary-color-3);
+        &:hover {
+            background: var(--ui-secondary-color-4);
+        }
+    }
+
+    &::-webkit-scrollbar-button {
+        display: none;
+    }
+}
+
+a {
+    color: inherit;
+    transition: all 0.3s;
+    font-family: inherit;
+    text-decoration: none;
+    &:hover {
+        color: var(--ui-color-5);
+    }
+}
+
+@font-face {
+    font-family: medium;
+    src: url("../fonts/NotoSansCJK-Medium.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: regular;
+    src: url("../fonts/NotoSansCJK-Regular.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.ui-overlay {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: auto;
+    z-index: 6;
+    position: fixed;
+    transition: background-color 0.2s;
+    background-color: var(--ui-overlay-color-1);
+    overflow: hidden;
+    &.fade-leave-to,
+    &.fade-enter-from {
+        background-color: transparent;
+    }
+
+    &.fade-enter-to,
+    &.fade-leave-from {
+        background-color: var(--ui-overlay-color-1);
+    }
+
+    &.ui-overlay-local {
+        position: absolute;
+    }
+
+    .ui-overlay-icon {
+        top: 50%;
+        left: 50%;
+        color: var(--ui-color-4);
+        position: absolute;
+        font-size: 20px;
+        transform: translate(-50%, -50%);
+        animation: center-rotate 2s linear infinite;
+    }
+}

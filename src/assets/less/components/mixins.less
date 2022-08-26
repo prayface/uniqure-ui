@@ -1,0 +1,40 @@
+.components-container {
+    .container-title {
+        display: flex;
+        padding: 0 0 16px;
+        align-items: flex-end;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--ui-secondary-color-3);
+        .container-title-content {
+            position: relative;
+
+            .font(48px, true);
+
+            &::before {
+                background: var(--ui-color-6);
+                position: absolute;
+                content: "";
+                height: 4px;
+                bottom: -17px;
+                width: 150%;
+                left: 0;
+            }
+        }
+
+        .container-title-infos {
+            display: flex;
+            margin: 0 -16px;
+            .container-title-info {
+                margin: 0 16px;
+            }
+        }
+    }
+
+    .section-container {
+        margin: 40px 0 0;
+        .section-title {
+            .font(24px, false);
+            margin: 0 0 20px;
+        }
+    }
+}

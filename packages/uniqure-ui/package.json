@@ -1,0 +1,44 @@
+{
+    "name": "uniqure-ui",
+    "version": "1.0.2",
+    "description": "A Component Library for Vue 3",
+    "author": "prayface",
+    "license": "ISC",
+    "main": "lib/index.js",
+    "module": "es/index.mjs",
+    "types": "es/index.d.ts",
+    "unpkg": "dist/index.full.js",
+    "jsdelivr": "dist/index.full.js",
+    "style": "assets/css/index.css",
+    "exports": {
+        ".": {
+            "require": "./lib/index.js",
+            "import": "./es/index.mjs",
+            "types": "./es/index.d.ts"
+        },
+        "./es": "./es/index.mjs",
+        "./lib": "./lib/index.js",
+        "./es/*.mjs": "./es/*.mjs",
+        "./es/*": "./es/*.mjs",
+        "./lib/*.js": "./lib/*.js",
+        "./lib/*": "./lib/*.js",
+        "./*": "./*"
+    },
+    "keywords": [
+        "uniqure-ui",
+        "uniqure",
+        "component library",
+        "ui framework",
+        "ui",
+        "vue"
+    ],
+    "dependencies": {
+        "vue": "^3.2.36"
+    },
+    "devDependencies": {
+        "@types/node": "^18.7.13",
+        "typescript": "^4.7.4",
+        "less": "^4.1.3"
+    }
+}
+

@@ -1,30 +1,14 @@
 {
     "compilerOptions": {
-        "jsx": "preserve",
-        "lib": ["esnext", "dom"],
-        "strict": true,
-        "target": "esnext",
-        "module": "esnext",
-        "baseUrl": "./",
+        "target": "ESNext",
+        "baseUrl": ".",
         "sourceMap": true,
-        "isolatedModules": true,
         "moduleResolution": "node",
-
         "useDefineForClassFields": true,
-        "resolveJsonModule": true,
-        "esModuleInterop": true,
-
         "paths": {
-            "@uniqure-ui/*": ["packages/*"],
             "@/*": ["src/*"]
         }
     },
-    "include": [
-        "src/**/*.ts",
-        "src/**/*.vue",
-        "src/**/*.d.ts",
-        "packages/**/*.ts",
-        "packages/**/*.vue",
-        "packages/**/*.d.ts"
-    ]
+    "include": ["src/**/*.ts", "src/**/*.vue", "src/**/*.d.ts"],
+    "references": [{ "path": "./tsconfig.modules.json" }]
 }

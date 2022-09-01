@@ -3,7 +3,7 @@ import Router from "./modules/router"
 import Uniqure from "./modules/uniqure"
 import App from "./App.vue"
 
-import "@uniqure-ui/assets/less/index.less"
+import "uniqure-ui/assets/css/index.css"
 
 const app = createApp(App)
 

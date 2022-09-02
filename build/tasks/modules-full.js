@@ -3,6 +3,8 @@ import VuePlugin from "@vitejs/plugin-vue"
 import VueJsxPlugin from "@vitejs/plugin-vue-jsx"
 import DefineOptions from "unplugin-vue-define-options/rollup"
 import CommonJSPlugin from "@rollup/plugin-commonjs"
+import GulpAliasPlugin from "@rollup/plugin-alias"
+import NodeResolvePlugin from "@rollup/plugin-node-resolve"
 import ESBuildPlugin, { minify as MinifyPlugin } from "rollup-plugin-esbuild"
 
 import { rollup } from "rollup"
@@ -10,20 +12,27 @@ import { Target } from "../constants/build"
 import { resolve } from "path"
 import { parallel } from "gulp"
 import { AliasPlugin } from "../plugins/alias"
-import { nodeResolve } from "@rollup/plugin-node-resolve"
 import { FormatBundleFilename, GenerateExternal, WriteBundles } from "../utils/rollup"
-import { UI_ROOT, UI_OUTPUT, PKG_BRAND_NAME, PKG_CAMELCASE_NAME } from "../constants"
+import { PACKAGES, UI_ROOT, UI_OUTPUT, PKG_BRAND_NAME, PKG_CAMELCASE_NAME } from "../constants"
 
 import { version } from "../../packages/uniqure-ui/package.json"
 
 const banner = `/*! ${PKG_BRAND_NAME} v${version} */\n`
+const customResolver = NodeResolvePlugin({
+    extensions: [".mjs", ".js", ".jsx", ".json", ".ts"]
+})
+
 const BuildFullEntry = async (minify) => {
     const plugins = [
         AliasPlugin(),
+        GulpAliasPlugin({
+            customResolver: customResolver,
+            entries: [{ find: "@uniqure-ui", replacement: PACKAGES }]
+        }),
+        NodeResolvePlugin(),
         DefineOptions(),
         VuePlugin({ isProduction: true }),
         VueJsxPlugin(),
-        nodeResolve({ extensions: [".mjs", ".js", ".json", ".ts"] }),
         CommonJSPlugin(),
         ESBuildPlugin({
             exclude: [],

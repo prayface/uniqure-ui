@@ -18,7 +18,7 @@ import { GenerateExternal, WriteBundles } from "../utils/rollup"
 import { resolve } from "path"
 
 const customResolver = NodeResolvePlugin({
-    extensions: [".mjs", ".js", ".jsx", ".json", ".ts"]
+    extensions: [".mjs", ".js", ".jsx", ".json", ".ts", ".css", ".less", ".otf"]
 })
 
 export const BuildModules = async (cb) => {
@@ -38,10 +38,7 @@ export const BuildModules = async (cb) => {
             AliasPlugin(),
             GulpAliasPlugin({
                 customResolver: customResolver,
-                entries: [
-                    { find: "@uniqure-ui", replacement: PACKAGES },
-                    { find: "@uniqure-ui/assets", replacement: resolve(UI_OUTPUT, "assets") }
-                ]
+                entries: [{ find: "@uniqure-ui", replacement: PACKAGES }]
             }),
             NodeResolvePlugin(),
             DefineOptions(),

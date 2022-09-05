@@ -1,14 +1,25 @@
 {
+    "extends": "./tsconfig.base.json",
     "compilerOptions": {
-        "target": "ESNext",
+        "jsx": "preserve",
+        "module": "esnext",
+        "target": "esnext",
         "baseUrl": ".",
         "sourceMap": true,
         "moduleResolution": "node",
         "useDefineForClassFields": true,
         "paths": {
-            "@/*": ["src/*"]
+            "@/*": ["src/*"],
+            "@uniqure-ui/*": ["packages/*"]
         }
     },
-    "include": ["src/**/*.ts", "src/**/*.vue", "src/**/*.d.ts"],
-    "references": [{ "path": "./tsconfig.modules.json" }]
+    "include": [
+        "packages/**/*.ts",
+        "packages/**/*.vue",
+        "packages/**/*.d.ts",
+        "src/**/*.ts",
+        "src/**/*.vue",
+        "src/**/*.d.ts",
+        "src/main.js"
+    ]
 }

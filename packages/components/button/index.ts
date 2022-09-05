@@ -2,7 +2,7 @@ import Button from "./src/button.vue"
 import { App } from "vue"
 
 export const UiButton = (app: App) => {
-    app.component(Button.name, Button)
+    app && app.component && app.component(Button.name, Button)
 
     return Button
 }

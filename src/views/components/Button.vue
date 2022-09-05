@@ -29,21 +29,42 @@
         </section>
 
         <section class="section-container">
+            <div class="section-title">loading按钮:</div>
+            <div class="section-content">
+                <ui-button :loading="cLoading1" @click="cLoading1 = !cLoading1">Loading按钮</ui-button>
+                <ui-button type="danger" :loading="cLoading2" @click="cLoading2 = !cLoading2"> Loading按钮 </ui-button>
+                <ui-button type="cancel" :loading="cLoading3" @click="cLoading3 = !cLoading3"> Loading按钮 </ui-button>
+                <ui-button type="ghost" :loading="cLoading4" @click="cLoading4 = !cLoading4">Loading按钮</ui-button>
+            </div>
+        </section>
+
+        <section class="section-container">
             <div class="section-title">按钮尺寸:</div>
             <div class="section-content">
                 <ui-button size="small">默认按钮</ui-button>
                 <ui-button type="danger">警告按钮</ui-button>
-                <ui-button type="cancel" size="large">取消按钮</ui-button>
+                <ui-button type="cancel" size="large" width="180">取消按钮</ui-button>
             </div>
         </section>
     </div>
 </template>
 
 <script lang="ts">
-    import { defineComponent } from "vue"
+    import { defineComponent, reactive, toRefs } from "vue"
 
     export default defineComponent({
-        setup() {}
+        setup() {
+            const data = reactive({
+                cLoading1: false,
+                cLoading2: false,
+                cLoading3: false,
+                cLoading4: false
+            })
+
+            return {
+                ...toRefs(data)
+            }
+        }
     })
 </script>
 

@@ -1,8 +1,9 @@
+import components from "./routes/components"
 import { createRouter, createWebHistory } from "vue-router"
 
 const routes = [
     { name: "Home", path: "/", component: () => import("@/views/Home.vue") },
-    { name: "Button", path: "/button", component: () => import("@/views/components/Button.vue") },
+    { name: "Components", path: "/components", component: () => import("@/views/Home.vue"), children: components },
     {
         name: "Error",
         path: "/:catchAll(.*)*",

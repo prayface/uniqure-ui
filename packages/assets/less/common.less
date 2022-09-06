@@ -34,6 +34,7 @@ a {
     font-style: normal;
 }
 
+// 遮罩层样式
 .ui-overlay {
     top: 0;
     left: 0;
@@ -74,6 +75,7 @@ a {
     }
 }
 
+// 滚动条样式
 .ui-scroll {
     // 初始化样式与滚动条
     // &::-webkit-scrollbar 滚动条整体部分
@@ -103,5 +105,47 @@ a {
 
     &::-webkit-scrollbar-button {
         display: none;
+    }
+}
+
+// 表单系列容器样式
+.ui-form-container {
+    background-color: rgb(var(--ui-secondary-color-1));
+    border-radius: 4px;
+    transition: all 0.2s;
+    position: relative;
+    padding: 8px 20px;
+    border: 1px solid rgb(var(--ui-secondary-color-3));
+    width: 100%;
+    input,
+    select {
+        color: rgb(var(--ui-secondary-color-9));
+        width: 100%;
+        margin: 0;
+        border: 0;
+        padding: 0;
+        outline: none;
+        z-index: 6;
+        position: relative;
+        background: transparent;
+        &::placeholder {
+            color: rgb(var(--ui-secondary-color-4));
+        }
+
+        &:focus::placeholder {
+            color: transparent;
+        }
+    }
+
+    &:hover {
+        border-color: rgb(var(--ui-color-4));
+    }
+}
+
+// 禁用状态样式
+.ui-disabled {
+    .ui-form-container {
+        border-color: rgb(var(--ui-secondary-color-2));
+        background: rgb(var(--ui-secondary-color-2));
     }
 }

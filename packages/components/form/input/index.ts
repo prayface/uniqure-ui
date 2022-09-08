@@ -8,4 +8,4 @@ export const UiInput = (app: App) => {
 }
 
 export default UiInput
-// export * from "./src/input"
+export * from "./src/input"

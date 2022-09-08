@@ -1,4 +1,4 @@
-import { InputProps } from "./input"
+import { InputProps, InputEmits } from "./input"
 import { computed, ComputedRef, SetupContext, Ref } from "vue"
 
 interface MethodsControls {
@@ -42,7 +42,7 @@ export const useComputed = (data: InputProps) => {
     }
 }
 
-export const useMethods = (context: SetupContext, controls: MethodsControls, data: MethodsData) => {
+export const useMethods = (context: SetupContext<InputEmits>, controls: MethodsControls, data: MethodsData) => {
     const onKeydown = (ev: KeyboardEvent) => {
         context.emit("keydown", ev)
     }

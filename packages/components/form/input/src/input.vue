@@ -20,20 +20,17 @@
                 @focus="onFocus"
                 @blur="onBlur" />
         </div>
-
-        <teleport to="#ui-popper">
-            <div>测试文本</div>
-        </teleport>
     </div>
 </template>
 
 <script lang="ts">
     import "@uniqure-ui/assets/less/components/input.less"
-    import { inputProps } from "./input"
+    import { inputProps, inputEmits } from "./input"
     import { useComputed, useMethods } from "./useInput"
     import { defineComponent, toRefs, ref } from "vue"
 
     export default defineComponent({
+        emits: inputEmits,
         props: inputProps,
         name: "ui-input",
         setup(props, context) {

@@ -115,7 +115,7 @@ a {
     transition: all 0.2s;
     position: relative;
     padding: 8px 20px;
-    border: 1px solid rgb(var(--ui-secondary-color-3));
+    border: 1px solid rgb(var(--ui-secondary-color-4));
     width: 100%;
     input,
     select {
@@ -137,8 +137,24 @@ a {
         }
     }
 
-    &:hover {
-        border-color: rgb(var(--ui-color-4));
+    &.ui-form-icon-container {
+        padding-right: 40px;
+        .ui-icon {
+            transition: all 0.2s;
+            font-size: 20px;
+            position: absolute;
+            color: rgb(var(--ui-secondary-color-4));
+            right: 8px;
+            top: 10px;
+        }
+    }
+
+    &:hover,
+    &.ui-active {
+        border-color: rgb(var(--ui-color-7));
+        .ui-icon {
+            color: rgb(var(--ui-color-7));
+        }
     }
 }
 
@@ -147,5 +163,8 @@ a {
     .ui-form-container {
         border-color: rgb(var(--ui-secondary-color-2));
         background: rgb(var(--ui-secondary-color-2));
+        .ui-icon {
+            color: rgb(var(--ui-secondary-color-4));
+        }
     }
 }

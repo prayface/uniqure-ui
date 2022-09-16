@@ -5,6 +5,7 @@
 </template>
 
 <script lang="ts">
+    import "@uniqure-ui/assets/less/components/icon.less"
     import { iconEmits, iconProps } from "./icon"
     import { defineComponent, computed } from "vue"
 
@@ -23,13 +24,3 @@
         }
     })
 </script>
-
-<style lang="less" scoped>
-    .ui-icon {
-        width: 1em;
-        height: 1em;
-        vertical-align: -0.15em;
-        fill: currentColor;
-        overflow: hidden;
-    }
-</style>

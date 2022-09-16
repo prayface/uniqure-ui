@@ -50,7 +50,7 @@
             const controls = { main, popper }
 
             const computeds = useComputed(props, show)
-            const methods = useMethods(context, controls, { ...props, show })
+            const methods = useMethods(context, controls, props, { show })
 
             return {
                 show,

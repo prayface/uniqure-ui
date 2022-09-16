@@ -11,52 +11,23 @@
 
 <script lang="ts">
     import "@uniqure-ui/assets/less/components/button.less"
-    import { defineComponent, computed } from "vue"
+    import { defineComponent, toRefs } from "vue"
     import { buttonProps, buttonEmits } from "./button"
+    import { useComputed } from "./useButton"
 
     export default defineComponent({
         name: "ui-button",
         props: buttonProps,
         emits: buttonEmits,
         setup(props, context) {
-            const styles = computed(() => {
-                if (props.width) {
-                    if (Number(props.width)) return `min-width: ${props.width}px`
-
-                    return `min-width: ${props.width}`
-                }
-
-                return ""
-            })
-
-            const disabled = computed(() => {
-                return props.disabled || props.loading
-            })
-
-            const className = computed(() => {
-                const result = ["ui-button"]
-
-                props.type && result.push(`ui-type__${props.type}`)
-                props.size && result.push(`ui-size__${props.size}`)
-
-                return result.join(" ")
-            })
-
-            const classOverlay = computed(() => {
-                if (props.loading) return "ui-overlay ui-overlay-local ui-overlay-loading"
-                else return "ui-overlay ui-overlay-local"
-            })
+            const computeds = useComputed(props)
 
             const onClick = (ev: MouseEvent) => {
                 context.emit("click", ev)
             }
 
             return {
-                styles,
-                disabled,
-                className,
-                classOverlay,
-
+                ...toRefs(computeds),
                 onClick
             }
         }

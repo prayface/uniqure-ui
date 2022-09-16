@@ -6,7 +6,7 @@ interface MethodsControls {
     main: Ref<HTMLDivElement | null>
 }
 
-interface MethodsData extends Omit<InputProps, "disabled"> {
+interface ExtraData {
     disabled: ComputedRef<boolean>
 }
 
@@ -42,7 +42,7 @@ export const useComputed = (data: InputProps) => {
     }
 }
 
-export const useMethods = (context: SetupContext<InputEmits>, controls: MethodsControls, data: MethodsData) => {
+export const useMethods = (context: SetupContext<InputEmits>, controls: MethodsControls, data: InputProps, extra: ExtraData) => {
     const onKeydown = (ev: KeyboardEvent) => {
         context.emit("keydown", ev)
     }
@@ -53,7 +53,7 @@ export const useMethods = (context: SetupContext<InputEmits>, controls: MethodsC
 
     const onClick = (ev: MouseEvent) => {
         // 1. 点击后如果当前焦点在选择框之外并且不是禁用状态时, 则输入框获取焦点
-        if (controls.input.value && controls.input.value !== document.activeElement && !data.disabled.value) {
+        if (controls.input.value && controls.input.value !== document.activeElement && !extra.disabled.value) {
             controls.input.value.focus()
         }
 

@@ -7,5 +7,11 @@ export default [
         path: "select",
         component: () => import("@/views/components/Select.vue"),
         meta: { name: "选择器" }
+    },
+    {
+        name: "Pagination",
+        path: "pagination",
+        component: () => import("@/views/components/Pagination.vue"),
+        meta: { name: "分页器" }
     }
 ]

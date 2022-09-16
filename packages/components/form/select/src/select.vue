@@ -18,7 +18,11 @@
         <teleport to="#ui-select-popper">
             <transition name="popper">
                 <div class="ui-popper-container" ref="popper" v-show="show">
-                    <div class="ui-select-item" v-for="v in option" @mousedown="onSelector(v.value || v.label, $event)">
+                    <div
+                        class="ui-select-item"
+                        v-for="v in option"
+                        @mousedown="onSelector(v.value || v.label, $event)"
+                        :class="{ 'ui-active': modelValue == v.value || modelValue == v.label }">
                         {{ v.label || v.value }}
                     </div>
                 </div>
@@ -46,7 +50,7 @@
             const controls = { main, popper }
 
             const computeds = useComputed(props, show)
-            const methods = useMethods(context, controls, { ...props, show })
+            const methods = useMethods(context, controls, props, { show })
 
             return {
                 show,

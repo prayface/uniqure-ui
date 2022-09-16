@@ -38,7 +38,7 @@
             const input = ref<HTMLInputElement | null>(null)
 
             const computeds = useComputed(props)
-            const methods = useMethods(context, { main, input }, { ...props, disabled: computeds.disabled })
+            const methods = useMethods(context, { main, input }, props, { disabled: computeds.disabled })
 
             return {
                 ...toRefs(computeds),

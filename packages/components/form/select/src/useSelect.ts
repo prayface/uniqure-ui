@@ -7,7 +7,7 @@ interface MethodsControls {
     main: Ref<HTMLDivElement | null>
 }
 
-interface MethodsData extends SelectProps {
+interface ExtraData {
     show: Ref<boolean>
 }
 
@@ -42,9 +42,9 @@ export const useComputed = (data: SelectProps, show: Ref<Boolean>) => {
     return { value, styles, className }
 }
 
-export const useMethods = (context: SetupContext<SelectEmits>, controls: MethodsControls, data: MethodsData) => {
+export const useMethods = (context: SetupContext<SelectEmits>, controls: MethodsControls, data: SelectProps, extra: ExtraData) => {
     const open = () => {
-        if (data.show.value) return (data.show.value = false)
+        if (extra.show.value) return (extra.show.value = false)
         if (controls.main.value && controls.popper.value) {
             const rect = GetBoundingClientRect(controls.main.value)
             if (data.alias === "right") {
@@ -53,14 +53,14 @@ export const useMethods = (context: SetupContext<SelectEmits>, controls: Methods
                 controls.popper.value.style.left = `${rect.left}px`
             }
 
-            data.show.value = true
+            extra.show.value = true
             controls.popper.value.style.top = `${rect.bottom + 4}px`
             controls.popper.value.style.minWidth = `${rect.width}px`
         }
     }
 
     const close = () => {
-        data.show.value = false
+        extra.show.value = false
     }
 
     const onSelector = (data: string, ev: MouseEvent) => {

@@ -3,7 +3,7 @@ import { useSizeProp } from "@uniqure-ui/hooks"
 
 export const selectProps = {
     placeholder: { type: String, default: "" } /**提示文本 */,
-    modelValue: { type: [String, Number] as PropType<String | Number>, require: true },
+    modelValue: { type: [String, Number] as PropType<String | Number>, required: true },
     disabled: Boolean,
     option: { type: Array<{ label: string; value: any }>, default: () => new Array() },
     width: { type: [String, Number] as PropType<String | Number>, default: "100%" },

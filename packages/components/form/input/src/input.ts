@@ -5,7 +5,7 @@ export const inputTypes = ["text", "number"] as const
 export const inputProps = {
     autocomplete: { type: String, values: ["off", "on"], default: "off" },
     placeholder: { type: String, default: "" } /**提示文本 */,
-    modelValue: { type: [String, Number] as PropType<String | Number>, require: true },
+    modelValue: { type: [String, Number] as PropType<String | Number>, required: true },
     disabled: Boolean,
     loading: Boolean,
     width: { type: [String, Number] as PropType<String | Number>, default: "100%" },

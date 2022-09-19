@@ -17,7 +17,7 @@ const AddSourceFiles = async (project) => {
 
     const globSourceFile = "**/*.{js?(x),ts?(x),vue}"
     const filePaths = ExcludeFiles(
-        await glob([globSourceFile, "!uniqure-ui/**/*"], {
+        await glob([globSourceFile, "!uniqure-ui/**/*", "!assets/**/*"], {
             cwd: PACKAGES,
             absolute: true,
             onlyFiles: true

@@ -24,7 +24,7 @@ export const useComputed = (data: InputProps) => {
     const disabled = computed(() => data.disabled || data.loading)
 
     const className = computed(() => {
-        const result = []
+        const result: string[] = []
 
         data.size && result.push(`ui-size__${data.size}`)
         disabled.value && result.push("ui-disabled")

@@ -6,6 +6,12 @@ interface ExtraData {
     total: ComputedRef<number>
 }
 
+export interface PaginationOptionItem {
+    type: string
+    show?: boolean
+    value: number | string
+}
+
 export const useComputed = (data: PaginationProps) => {
     const info = computed(() => {
         if (data.limit && data.count && data.page) {
@@ -25,7 +31,7 @@ export const useComputed = (data: PaginationProps) => {
         const level = Number(data.level)
 
         const last = total.value - level
-        const result = []
+        const result: PaginationOptionItem[] = []
 
         if (total.value <= level * 2 + 4 || level <= 0) {
             for (let i = 1; i <= total.value; i++) {

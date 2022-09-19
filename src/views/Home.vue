@@ -2,10 +2,7 @@
     <div class="home">
         <aside>
             <template v-for="v in data" :key="v.name">
-                <router-link
-                    class="aside-item"
-                    :to="`/components/${v.path}`"
-                    :class="{ active: $route.name === v.name }">
+                <router-link class="aside-item" :to="`/components/${v.path}`" :class="{ active: $route.name === v.name }">
                     {{ v.name }} {{ v.meta.name }}
                 </router-link>
             </template>

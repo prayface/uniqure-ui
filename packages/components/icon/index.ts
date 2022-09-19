@@ -1,11 +1,6 @@
 import Icon from "./src/icon.vue"
-import { App } from "vue"
+import { preInstall } from "@uniqure-ui/utils"
 
-export const UiIcon = (app: App) => {
-    app && app.component && app.component(Icon.name, Icon)
-
-    return Icon
-}
-
+export const UiIcon = preInstall(Icon)
 export default UiIcon
 export * from "./src/icon"

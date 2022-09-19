@@ -1,17 +1,12 @@
 import Select from "./src/select.vue"
-import { App } from "vue"
+import { preInstall } from "@uniqure-ui/utils"
 
-export const UiSelect = (app: App) => {
-    app && app.component && app.component(Select.name, Select)
-
-    if (!document.body.querySelector("#ui-select-popper")) {
-        const container = document.createElement("div")
-        container.id = "ui-select-popper"
-        document.body.append(container)
-    }
-
-    return Select
+if (!document.body.querySelector("#ui-select-popper")) {
+    const container = document.createElement("div")
+    container.id = "ui-select-popper"
+    document.body.append(container)
 }
 
+export const UiSelect = preInstall(Select)
 export default UiSelect
 export * from "./src/select"

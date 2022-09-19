@@ -11,8 +11,7 @@ export default series(
     CleanDirectory,
     CreateDirectory,
     BulidAssets,
-    series(BuildModules)
-    // series(BuildModules, GenerateTypes)
+    series(BuildModules, GenerateTypes),
     // series(BuildModules, BuildFullModules, GenerateTypes),
-    // parallel(CopyTypes("esm"), CopyTypes("cjs"), CopyFiles)
+    parallel(CopyTypes("esm"), CopyTypes("cjs"), CopyFiles)
 )

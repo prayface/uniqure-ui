@@ -13,7 +13,7 @@ interface ExtraData {
 
 export const useComputed = (data: SelectProps, show: Ref<Boolean>) => {
     const className = computed(() => {
-        const result = []
+        const result: string[] = []
 
         show.value && result.push("ui-active")
         data.icon && result.push("ui-form-icon-container")

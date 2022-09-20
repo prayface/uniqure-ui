@@ -23,7 +23,7 @@ const customResolver = NodeResolvePlugin({
 
 export const BuildModules = async (cb) => {
     const input = ExcludeFiles(
-        await glob("**/*.{js,ts,vue}", {
+        await glob(["**/*.{js,ts,vue}", "!assets/**/*"], {
             cwd: PACKAGES,
             absolute: true,
             onlyFiles: true

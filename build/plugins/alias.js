@@ -7,6 +7,11 @@ export function AliasPlugin() {
         name: "alias-plugin",
         resolveId(id) {
             if (!id.startsWith(source)) return
+            if (id.endsWith(".less")) {
+                id = id.replace(".less", ".css")
+                id = id.replace("/less/", "/css/")
+            }
+
             return { id: id.replace(source, bundle), external: "absolute" }
         }
     }

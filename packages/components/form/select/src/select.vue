@@ -33,7 +33,7 @@
 
 <script lang="ts">
     import "@uniqure-ui/assets/less/components/select.less"
-    import { defineComponent, ref, toRefs } from "vue"
+    import { defineComponent, ref } from "vue"
     import { selectProps, selectEmits } from "./select"
     import { useComputed, useMethods } from "./useSelect"
 
@@ -57,8 +57,8 @@
                 main,
                 input,
                 popper,
-                ...toRefs(computeds),
-                ...toRefs(methods)
+                ...computeds,
+                ...methods
             }
         }
     })

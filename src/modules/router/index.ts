@@ -1,9 +1,11 @@
 import components from "./routes/components"
+import directives from "./routes/directives"
 import { createRouter, createWebHistory } from "vue-router"
 
 const routes = [
     { name: "Home", path: "/", component: () => import("@/views/Home.vue") },
     { name: "Components", path: "/components", component: () => import("@/views/Home.vue"), children: components },
+    { name: "Directives", path: "/directives", component: () => import("@/views/Home.vue"), children: directives },
     {
         name: "Error",
         path: "/:catchAll(.*)*",

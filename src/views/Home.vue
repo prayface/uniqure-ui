@@ -1,8 +1,18 @@
 <template>
     <div class="home">
         <aside>
-            <template v-for="v in data" :key="v.name">
+            <div class="aside-title">组件</div>
+            <template v-for="v in components" :key="v.name">
                 <router-link class="aside-item" :to="`/components/${v.path}`" :class="{ active: $route.name === v.name }">
+                    {{ v.name }} {{ v.meta.name }}
+                </router-link>
+            </template>
+
+            <div class="aside-hr"></div>
+
+            <div class="aside-title">指令</div>
+            <template v-for="v in directives" :key="v.name">
+                <router-link class="aside-item" :to="`/directives/${v.path}`" :class="{ active: $route.name === v.name }">
                     {{ v.name }} {{ v.meta.name }}
                 </router-link>
             </template>
@@ -14,15 +24,15 @@
 </template>
 
 <script lang="ts">
-    import routes from "@/modules/router/routes/components"
+    import components from "@/modules/router/routes/components"
+    import directives from "@/modules/router/routes/directives"
     import { defineComponent, ref } from "vue"
 
     export default defineComponent({
         setup() {
-            const data = ref(routes)
-
             return {
-                data
+                components: ref(components),
+                directives: ref(directives)
             }
         }
     })
@@ -37,6 +47,19 @@
             margin: 0 40px 0 0;
             display: flex;
             flex-direction: column;
+            .aside-hr {
+                width: 100%;
+                height: 1px;
+                margin: 20px 0;
+                background: rgb(var(--ui-secondary-color-3));
+            }
+
+            .aside-title {
+                padding: 8px 12px;
+                font-size: 20px;
+                font-weight: bold;
+            }
+
             .aside-item {
                 width: 100%;
                 margin: 0 0 8px;

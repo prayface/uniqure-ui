@@ -1,11 +1,11 @@
 import { createApp } from "vue"
 import Router from "./modules/router"
-// import Uniqure from "./modules/uniqure"
+import uniqure from "./modules/uniqure"
 import App from "./App.vue"
 
 import "@uniqure-ui/assets/less/index.less"
 import "@uniqure-ui/assets/iconfont/iconfont.js"
-import uniqure from "uniqure-ui"
+// import uniqure from "uniqure-ui"
 
 const app = createApp(App)
 

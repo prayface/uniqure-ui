@@ -1,5 +1,5 @@
 <template>
-    <svg class="ui-icon" aria-hidden="true">
+    <svg class="ui-icon" aria-hidden="true" @click="$emit('click', $event)">
         <use :xlink:href="icon"></use>
     </svg>
 </template>

@@ -6,6 +6,20 @@
   "description": "ui-modules图标库",
   "glyphs": [
     {
+      "icon_id": "30419697",
+      "name": "download",
+      "font_class": "download",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "30419702",
+      "name": "search",
+      "font_class": "search",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
       "icon_id": "31712005",
       "name": "arrow",
       "font_class": "arrow",

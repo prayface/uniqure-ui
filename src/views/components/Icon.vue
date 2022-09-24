@@ -24,7 +24,7 @@
 
     export default defineComponent({
         setup() {
-            const data = ref(["success", "error", "loading"])
+            const data = ref(["success", "error", "loading", "arrow", "arrow-bold", "search", "download"])
 
             const copy = (name: string) => {
                 navigator.clipboard.writeText(`<ui-icon name="${name}" />`).then(() => {

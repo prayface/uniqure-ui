@@ -9,6 +9,12 @@ export default [
         meta: { name: "选择器" }
     },
     {
+        name: "Loading",
+        path: "loading",
+        component: () => import("@/views/components/Loading.vue"),
+        meta: { name: "加载" }
+    },
+    {
         name: "Pagination",
         path: "pagination",
         component: () => import("@/views/components/Pagination.vue"),

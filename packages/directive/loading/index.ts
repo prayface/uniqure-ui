@@ -3,6 +3,7 @@ import { dirInstall } from "@uniqure-ui/utils"
 
 export const VLoading = dirInstall({
     name: "loading",
+    data() {},
     mounted: (el: any, data: DirectiveBinding<any>) => {
         append(el, data)
     },
@@ -10,13 +11,12 @@ export const VLoading = dirInstall({
         append(el, data)
     },
     unmounted(el: any) {
-        const dom = el.querySelector(".ui-overlay")
-        dom && el.removeChild(dom)
+        append(el, false)
     }
 })
 
 const append = (el: any, data: DirectiveBinding<any>) => {
-    if (data.value && data.value.finally) {
+    if (data.value) {
         const dom = document.createElement("div")
         dom.className = "ui-overlay ui-overlay-local ui-overlay-loading"
         dom.innerHTML = `
@@ -27,9 +27,8 @@ const append = (el: any, data: DirectiveBinding<any>) => {
 
         el.style.position = "relative"
         el.append(dom)
-
-        data.value.finally(() => {
-            el.removeChild(dom)
-        })
+    } else {
+        const dom = el.querySelector(".ui-overlay")
+        dom && el.removeChild(dom)
     }
 }

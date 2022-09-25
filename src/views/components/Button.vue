@@ -31,7 +31,7 @@
         <section class="section-container">
             <div class="section-title">loading按钮:</div>
             <div class="section-content">
-                <ui-button :loading="true">Loading按钮</ui-button>
+                <ui-button :loading="loading" @click="open">Loading按钮</ui-button>
                 <ui-button type="danger" :loading="true"> Loading按钮 </ui-button>
                 <ui-button type="cancel" :loading="true"> Loading按钮 </ui-button>
                 <ui-button type="ghost" :loading="true">Loading按钮</ui-button>
@@ -50,10 +50,21 @@
 </template>
 
 <script lang="ts">
-    import { defineComponent } from "vue"
+    import { defineComponent, ref } from "vue"
 
     export default defineComponent({
-        setup() {}
+        setup() {
+            const loading = ref<boolean>(false)
+
+            const open = () => {
+                loading.value = true
+                setTimeout(() => {
+                    loading.value = false
+                }, 2000)
+            }
+
+            return { open, loading }
+        }
     })
 </script>
 

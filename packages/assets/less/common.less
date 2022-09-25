@@ -43,7 +43,7 @@ a {
     cursor: auto;
     z-index: 6;
     position: fixed;
-    transition: background-color 0.2s;
+    transition: opacity 0.2s;
     background-color: var(--ui-overlay-color-1);
     overflow: hidden;
     .ui-overlay-icon {
@@ -52,7 +52,7 @@ a {
         color: rgb(var(--ui-secondary-color-9));
         position: absolute;
         font-size: 20px;
-        animation: center-rotate 2s linear infinite;
+        animation: ui-center-rotate 2s linear infinite;
         transition: all 0.2s;
     }
 
@@ -66,12 +66,14 @@ a {
 
     &.fade-leave-to,
     &.fade-enter-from {
-        background-color: transparent;
+        opacity: 0;
+        // background-color: transparent;
     }
 
     &.fade-enter-to,
     &.fade-leave-from {
-        background-color: var(--ui-overlay-color-1);
+        opacity: 1;
+        // background-color: var(--ui-overlay-color-1);
     }
 }
 

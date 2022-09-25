@@ -37,6 +37,12 @@
     import { selectProps, selectEmits } from "./select"
     import { useComputed, useMethods } from "./useSelect"
 
+    if (!document.body.querySelector("#ui-select-popper")) {
+        const container = document.createElement("div")
+        container.id = "ui-select-popper"
+        document.body.append(container)
+    }
+
     export default defineComponent({
         name: "ui-select",
         props: selectProps,

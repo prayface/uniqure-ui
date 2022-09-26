@@ -14,7 +14,7 @@ export const inputProps = {
 } as const
 
 export const inputEmits = {
-    "update:modelValue": (v: String) => v instanceof String,
+    "update:modelValue": (ev: any) => true,
     "keydown": (ev: KeyboardEvent) => ev instanceof KeyboardEvent,
     "change": (ev: Event) => ev instanceof Event,
     "input": (ev: Event) => ev instanceof Event,

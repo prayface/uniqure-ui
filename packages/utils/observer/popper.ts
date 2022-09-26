@@ -6,7 +6,6 @@ export const PopperObserver = new IntersectionObserver((entries) => {
         const rect = Number(target.getAttribute("ui-rect") || 0)
         const offsetY = Number(target.getAttribute("ui-offset-y") || 0)
         // 判断是否显示
-        console.log(entrie)
         if (entrie.isIntersecting && entrie.intersectionRatio === 1) {
             target.style.top = `${offsetY + rect + 4}px`
         } else {

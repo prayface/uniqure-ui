@@ -13,7 +13,7 @@ export const selectProps = {
 } as const
 
 export const selectEmits = {
-    "update:modelValue": (v: String) => v instanceof String,
+    "update:modelValue": (ev: any) => true,
     "change": (ev: MouseEvent) => ev instanceof MouseEvent
 }
 

@@ -1,32 +1,33 @@
-import { DirectiveBinding } from "vue"
 import { dirInstall } from "@uniqure-ui/utils"
 
 export const VLoading = dirInstall({
     name: "loading",
     data() {},
-    mounted: (el: any, data: DirectiveBinding<any>) => {
-        append(el, data)
+    mounted: (el: any, isShow: boolean) => {
+        append(el, isShow)
     },
-    updated(el: any, data: DirectiveBinding<any>) {
-        append(el, data)
+    updated(el: any, isShow: boolean) {
+        append(el, isShow)
     },
     unmounted(el: any) {
         append(el, false)
     }
 })
 
-const append = (el: any, data: DirectiveBinding<any>) => {
-    if (data.value) {
-        const dom = document.createElement("div")
-        dom.className = "ui-overlay ui-overlay-local ui-overlay-loading"
-        dom.innerHTML = `
+const append = (el: any, isShow: boolean) => {
+    if (isShow) {
+        if (!el.querySelector(".ui-overlay")) {
+            const dom = document.createElement("div")
+            dom.className = "ui-overlay ui-overlay-local ui-overlay-loading"
+            dom.innerHTML = `
                 <svg class="ui-overlay-icon ui-icon">
                     <use xlink:href="#icon-loading"></use>
                 </svg>
             `
 
-        el.style.position = "relative"
-        el.append(dom)
+            el.style.position = "relative"
+            el.append(dom)
+        }
     } else {
         const dom = el.querySelector(".ui-overlay")
         dom && el.removeChild(dom)

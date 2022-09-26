@@ -131,7 +131,6 @@ export const useMethods = (context: SetupContext<PaginationEmits>, data: Paginat
     }
 
     const onChange = (value: number | string, disabled?: boolean) => {
-        console.log(data.page, value)
         if (data.page != value && !disabled) {
             context.emit("update:page", value)
             context.emit("change", value)

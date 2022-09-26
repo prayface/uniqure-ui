@@ -1,6 +1,6 @@
 {
     "name": "uniqure-ui",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "A Component Library for Vue 3",
     "author": "prayface",
     "license": "ISC",
@@ -41,4 +41,3 @@
         "less": "^4.1.3"
     }
 }
-

@@ -1,5 +1,5 @@
 <template>
-    <div class="ui-pagination">
+    <div class="ui-pagination" v-if="total">
         <div class="ui-pagination-items">{{ info }}</div>
         <div class="ui-pagination-controls">
             <div class="ui-pagination-control" :class="nextClass" @click.stop="onChange(page - 1, nextDisabled)">
@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts">
-    import { defineComponent, ref, toRefs } from "vue"
+    import { defineComponent, ref } from "vue"
     import { paginationProps, paginationEmits } from "./pagination"
     import { useComputed, useMethods } from "./usePagination"
     import "@uniqure-ui/assets/less/components/pagination.less"
@@ -39,8 +39,8 @@
             const methods = useMethods(context, props, { total: computeds.total, omitHidden: omitHidden })
 
             return {
-                ...toRefs(computeds),
-                ...toRefs(methods),
+                ...computeds,
+                ...methods,
                 omitHidden
             }
         }

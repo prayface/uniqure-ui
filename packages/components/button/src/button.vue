@@ -11,7 +11,7 @@
 
 <script lang="ts">
     import "@uniqure-ui/assets/less/components/button.less"
-    import { defineComponent, toRefs } from "vue"
+    import { defineComponent } from "vue"
     import { buttonProps, buttonEmits } from "./button"
     import { useComputed } from "./useButton"
 
@@ -27,7 +27,7 @@
             }
 
             return {
-                ...toRefs(computeds),
+                ...computeds,
                 onClick
             }
         }

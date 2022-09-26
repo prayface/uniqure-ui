@@ -27,7 +27,7 @@
     import "@uniqure-ui/assets/less/components/input.less"
     import { inputProps, inputEmits } from "./input"
     import { useComputed, useMethods } from "./useInput"
-    import { defineComponent, toRefs, ref } from "vue"
+    import { defineComponent, ref } from "vue"
 
     export default defineComponent({
         emits: inputEmits,
@@ -41,8 +41,8 @@
             const methods = useMethods(context, { main, input }, props, { disabled: computeds.disabled })
 
             return {
-                ...toRefs(computeds),
-                ...toRefs(methods),
+                ...computeds,
+                ...methods,
                 input,
                 main
             }

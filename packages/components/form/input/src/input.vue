@@ -24,15 +24,17 @@
 </template>
 
 <script lang="ts">
-    import "@uniqure-ui/assets/less/components/input.less"
+    // import "@uniqure-ui/assets/less/components/input.less"
     import { inputProps, inputEmits } from "./input"
     import { useComputed, useMethods } from "./useInput"
     import { defineComponent, ref } from "vue"
+    import { UiIcon } from "@uniqure-ui/components/icon"
 
     export default defineComponent({
         emits: inputEmits,
         props: inputProps,
         name: "ui-input",
+        components: { UiIcon },
         setup(props, context) {
             const main = ref<HTMLDivElement | null>(null)
             const input = ref<HTMLInputElement | null>(null)

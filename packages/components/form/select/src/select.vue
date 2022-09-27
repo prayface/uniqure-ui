@@ -32,10 +32,11 @@
 </template>
 
 <script lang="ts">
-    import "@uniqure-ui/assets/less/components/select.less"
+    // import "@uniqure-ui/assets/less/components/select.less"
     import { defineComponent, ref } from "vue"
     import { selectProps, selectEmits } from "./select"
     import { useComputed, useMethods } from "./useSelect"
+    import { UiIcon } from "@uniqure-ui/components/icon"
 
     if (!document.body.querySelector("#ui-select-popper")) {
         const container = document.createElement("div")
@@ -47,6 +48,7 @@
         name: "ui-select",
         props: selectProps,
         emits: selectEmits,
+        components: { UiIcon },
         setup(props, context) {
             const show = ref(false)
             const main = ref<HTMLDivElement | null>(null)

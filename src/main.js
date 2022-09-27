@@ -5,6 +5,7 @@ import App from "./App.vue"
 
 import "@uniqure-ui/assets/less/index.less"
 import "@uniqure-ui/assets/iconfont/iconfont.js"
+import "@uniqure-ui/assets/less/components/index.less"
 // import uniqure from "uniqure-ui"
 
 const app = createApp(App)

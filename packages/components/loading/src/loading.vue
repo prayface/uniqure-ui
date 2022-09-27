@@ -12,7 +12,7 @@
 <script lang="ts">
     import { defineComponent, inject } from "vue"
     import { UiIcon } from "@uniqure-ui/components/icon"
-    import "@uniqure-ui/assets/less/components/loading.less"
+    // import "@uniqure-ui/assets/less/components/loading.less"
 
     export default defineComponent({
         components: { UiIcon },

@@ -2,7 +2,7 @@
     <div class="ui-pagination" v-if="total">
         <div class="ui-pagination-items">{{ info }}</div>
         <div class="ui-pagination-controls">
-            <div class="ui-pagination-control" :class="nextClass" @click.stop="onChange(page - 1, nextDisabled)">
+            <div class="ui-pagination-control" :class="nextClass" @click.stop="onChange(Number(page) - 1, nextDisabled)">
                 <ui-icon name="arrow" class="ui-pagination-next"></ui-icon>
             </div>
             <template v-for="(val, key) in controls" :key="key">
@@ -27,12 +27,13 @@
     import { defineComponent, ref } from "vue"
     import { paginationProps, paginationEmits } from "./pagination"
     import { useComputed, useMethods } from "./usePagination"
-    import "@uniqure-ui/assets/less/components/pagination.less"
+    import { UiIcon } from "@uniqure-ui/components/icon"
 
     export default defineComponent({
         name: "ui-pagination",
         emits: paginationEmits,
         props: paginationProps,
+        components: { UiIcon },
         setup(props, context) {
             const omitHidden = ref(-1)
             const computeds = useComputed(props)

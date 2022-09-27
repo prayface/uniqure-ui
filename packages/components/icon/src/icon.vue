@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-    import "@uniqure-ui/assets/less/components/icon.less"
+    // import "@uniqure-ui/assets/less/components/icon.less"
     import { iconEmits, iconProps } from "./icon"
     import { defineComponent, computed } from "vue"
 

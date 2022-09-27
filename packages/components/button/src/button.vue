@@ -10,15 +10,17 @@
 </template>
 
 <script lang="ts">
-    import "@uniqure-ui/assets/less/components/button.less"
+    // import "@uniqure-ui/assets/less/components/button.less"
     import { defineComponent } from "vue"
     import { buttonProps, buttonEmits } from "./button"
     import { useComputed } from "./useButton"
+    import { UiIcon } from "@uniqure-ui/components/icon"
 
     export default defineComponent({
         name: "ui-button",
         props: buttonProps,
         emits: buttonEmits,
+        components: { UiIcon },
         setup(props, context) {
             const computeds = useComputed(props)
 

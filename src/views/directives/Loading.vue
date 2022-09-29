@@ -27,14 +27,13 @@
 
     export default defineComponent({
         setup() {
-            const promise = ref<Promise<any> | null>(null)
+            const promise = ref<boolean>(false)
 
             const onClick = () => {
-                promise.value = new Promise((resolve, reject) => {
-                    setTimeout(() => {
-                        resolve("成功")
-                    }, 3000)
-                })
+                promise.value = true
+                setTimeout(() => {
+                    promise.value = false
+                }, 3000)
             }
 
             return { promise, onClick }

@@ -5,12 +5,12 @@
             <div class="ui-pagination-control" :class="nextClass" @click.stop="onChange(Number(page) - 1, nextDisabled)">
                 <ui-icon name="arrow" class="ui-pagination-next"></ui-icon>
             </div>
-            <template v-for="(val, key) in controls" :key="key">
+            <template v-for="(val, key) in controls">
                 <div class="ui-pagination-control" :class="{ 'ui-active': val.value == page }">
-                    <div v-if="val.type === 'item'" class="ui-pagination-item-control" @click.stop="onChange(val.value)">
+                    <div v-if="val.type === 'item'" class="ui-pagination-item-control" @click.stop="onChange(val.value)" :key="key">
                         {{ val.value }}
                     </div>
-                    <div class="ui-pagination-input-control" v-if="val.type === 'input'">
+                    <div v-if="val.type === 'input'" class="ui-pagination-input-control" :key="key">
                         <span v-show="omitHidden !== key">...</span>
                         <input type="number" @focus="omitHidden = key" @blur.stop="onJump" @keydown.enter="onEnter" @change.stop />
                     </div>

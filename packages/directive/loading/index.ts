@@ -3,11 +3,11 @@ import { dirInstall } from "@uniqure-ui/utils"
 export const VLoading = dirInstall({
     name: "loading",
     data() {},
-    mounted: (el: any, isShow: boolean) => {
-        append(el, isShow)
+    mounted: (el: any, res: any) => {
+        append(el, res.value)
     },
-    updated(el: any, isShow: boolean) {
-        append(el, isShow)
+    updated(el: any, res: any) {
+        append(el, res.value)
     },
     unmounted(el: any) {
         append(el, false)

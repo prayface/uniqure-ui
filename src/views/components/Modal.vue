@@ -11,17 +11,28 @@
         <section class="section-container">
             <div class="section-title">模态框:</div>
             <div class="section-content">
-                <ui-modal> 我是一段内容 </ui-modal>
+                <ui-button @click="open">我是按钮</ui-button>
+                <ui-modal ref="modal" title="我是一个标题"> 我是一段内容 </ui-modal>
             </div>
         </section>
     </div>
 </template>
 
 <script lang="ts">
-    import { defineComponent } from "vue"
-    import { UiModal } from "@uniqure-ui/uniqure-ui/index"
+    import { defineComponent, ref } from "vue"
+    import { UiModal, UiButton } from "@uniqure-ui/uniqure-ui/index"
     export default defineComponent({
-        components: { UiModal }
+        components: { UiModal, UiButton },
+        setup() {
+            const modal = ref<InstanceType<typeof UiModal> | null>(null)
+            const open = () => {
+                if (modal.value && modal.value.open) {
+                    modal.value.open()
+                }
+            }
+
+            return { modal, open }
+        }
     })
 </script>
 

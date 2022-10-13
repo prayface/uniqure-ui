@@ -67,47 +67,19 @@ a {
     &.fade-leave-to,
     &.fade-enter-from {
         opacity: 0;
-        // background-color: transparent;
     }
 
     &.fade-enter-to,
     &.fade-leave-from {
         opacity: 1;
-        // background-color: var(--ui-overlay-color-1);
     }
 }
 
 // 滚动条样式
 .ui-scroll {
-    // 初始化样式与滚动条
-    // &::-webkit-scrollbar 滚动条整体部分
-    // &::-webkit-scrollbar-thumb 滚动条里面的小方块，能向上向下移动（或向左向右移动）
-    // &::-webkit-scrollbar-track 滚动条的轨道（里面装有Thumb）
-    // &::-webkit-scrollbar-button 滚动条的轨道的两端按钮，由于通过点击微调小方块的位置。
-    // &::-webkit-scrollbar-track-piece 内层轨道，滚动条中间部分
-    // &::-webkit-scrollbar-corner 边角，即垂直滚动条和水平滚动条相交的地方
-    // &::-webkit-resizer 两个滚动条的交汇处上用于拖动调整元素大小的小控件
-    &::-webkit-scrollbar {
-        width: 12px;
-        padding: 0 2px;
-    }
-
-    &::-webkit-scrollbar-track {
-        background: rgb(var(--ui-secondary-color-3));
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background: rgb(var(--ui-secondary-color-1));
-        border-radius: 9999px;
-        border: 2px solid rgb(var(--ui-secondary-color-3));
-        &:hover {
-            background: rgb(var(--ui-secondary-color-4));
-        }
-    }
-
-    &::-webkit-scrollbar-button {
-        display: none;
-    }
+    top: 0;
+    right: 0;
+    position: absolute;
 }
 
 // 表单系列容器样式

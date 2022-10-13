@@ -1,5 +1,6 @@
 export * from "./pagination"
 export * from "./loading"
 export * from "./button"
+export * from "./modal"
 export * from "./icon"
 export * from "./form"

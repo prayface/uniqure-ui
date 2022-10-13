@@ -18,13 +18,14 @@
         <teleport to="#ui-select-popper">
             <transition name="popper">
                 <div class="ui-popper-container" ref="popper" v-show="show">
-                    <div
-                        class="ui-select-item"
-                        v-for="v in option"
-                        @mousedown="onSelector(v.value || v.label, $event)"
-                        :class="{ 'ui-active': modelValue == v.value || modelValue == v.label }">
-                        {{ v.label || v.value }}
-                    </div>
+                    <template v-for="v in option">
+                        <div
+                            class="ui-select-item"
+                            @mousedown="onSelector(v.value || v.label, $event)"
+                            :class="{ 'ui-active': modelValue == v.value || modelValue == v.label }">
+                            {{ v.label || v.value }}
+                        </div>
+                    </template>
                 </div>
             </transition>
         </teleport>

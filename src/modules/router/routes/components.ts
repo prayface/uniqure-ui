@@ -19,5 +19,11 @@ export default [
         path: "pagination",
         component: () => import("@/views/components/Pagination.vue"),
         meta: { name: "分页器" }
+    },
+    {
+        name: "Modal",
+        path: "modal",
+        component: () => import("@/views/components/Modal.vue"),
+        meta: { name: "模态框" }
     }
 ]
